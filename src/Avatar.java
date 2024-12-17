@@ -6,7 +6,7 @@ public class Avatar {
     public double dm = 1.0;
     public String vl;
     public String ability;
-    public Boolean isAlive;
+    public boolean isAlive;
 
     public Avatar( String name, double health, String type, String ability, String vl, double dm, double rm, boolean alive){
         this.name = name;
@@ -16,6 +16,16 @@ public class Avatar {
         this.vl = vl;
         this.dm = dm;
         this.isAlive = alive;
+    }
+
+    public Avatar(){
+        this.name = "Chris";
+        this.health = 150;
+        this.type = "C";
+        this.ability = "Beg!";
+        this.vl = "Don't hurt us! Please! Resort to peace!";
+        this.dm = 1.2;
+
     }
 
     public double getHealth() {
@@ -74,12 +84,34 @@ public class Avatar {
         this.ability = ability;
     }
 
-    public Boolean aliveCheck(){
+    public void voiceline(){
+        System.out.println(vl);
+
+    }
+
+    public boolean aliveCheck(){
         if(health <= 0){
             return false;
         }
      else{return true;}
     }
+    public void gainResistance(){
+        int decrease = (int) (Math.random()*11)+1;
+        this.rm = this.rm - (int) (Math.random()/4);
+        this.health = health - decrease;
+    }
+    public void gainHealth(){
+        int increase = (int) (Math.random()*11)+1;
+        this.health = health + increase;
+    }
+
+    public double takeDamage(double damage){
+        damage = damage * rm;
+        health = health - damage;
+        return health;
+    }
+
+
 }
 
 
