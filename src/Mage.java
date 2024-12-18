@@ -1,8 +1,8 @@
 public class Mage extends Avatar {
-    Boolean lowMana;
-    double
+    private boolean lowMana;
+    private int mana = 0;
 
-    public Mage(String name, double health, String ability, String vl){
+    public Mage(String name, double health, String ability, String vl, int mana){
         this.name = name;
         this.health = health;
         this.type = "mage";
@@ -11,13 +11,16 @@ public class Mage extends Avatar {
         this.dm = 1.25;
         this.rm = .9;
         lowMana = false;
+        this.mana = mana;
     }
 
     public void voiceLine(){
-        System.out.println(name + " screams" + vl + " as they use their ability " + ability);;
+        System.out.println("Low Mana!");
     }
-
-    public void setLowMana(Boolean isLow) {
+    public void getMana(){
+        System.out.println("Mana: " + mana);
+    }
+    public void setIsLowMana(Boolean isLow) {
         lowMana = isLow;
     }
 

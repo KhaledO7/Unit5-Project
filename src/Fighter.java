@@ -1,5 +1,5 @@
 public class Fighter extends Avatar {
-    Boolean isProtected;
+    private boolean isProtected;
 
 
     public Fighter(String name, double health, String ability, String vl){
@@ -14,11 +14,20 @@ public class Fighter extends Avatar {
     }
 
     public void voiceLine(){
-        System.out.println(name + " screams" + vl + " as they use their ability " + ability);;
+        System.out.println("I am shielded");
     }
 
     public void setProtect(Boolean protect) {
         isProtected = protect;
     }
 
+    public void gainResistance(){
+        int decrease = (int) (Math.random()*21)+1;
+        this.rm = this.rm - (int) (Math.random()/4);
+        this.health = health - decrease;
+    }
+    public void gainHealth(){
+        int increase = (int) (Math.random()*21)+1;
+        this.health = health + increase;
+    }
 }
