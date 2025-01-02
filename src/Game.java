@@ -13,9 +13,10 @@ public class Game {
         break;
       }
       name.add(inputs);
-
+      
     }
-
+    System.out.println(name.toString());
+    
 
     Avatar bob = new Avatar();
 
