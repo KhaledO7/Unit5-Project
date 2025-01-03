@@ -1,13 +1,15 @@
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Arrays;
 public class Game {
   public static void main(String args[]){
+    ArrayList<String> name = new ArrayList<>();
     boolean isStart = true;
     while(isStart){
-      ArrayList<String> name = new ArrayList<>();
+
       String inputs;
       Scanner input = new Scanner(System.in);
-      System.out.print("Enter Avatar name: ");
+      System.out.print("Enter Opponents name: ");
       inputs = input.nextLine();
       if (inputs.equalsIgnoreCase("stop")){
         break;
@@ -15,8 +17,22 @@ public class Game {
       name.add(inputs);
       
     }
-    System.out.println(name.toString());
-    
+    System.out.println(Arrays.toString(name.toArray()));
+    System.out.println();
+    while(isStart){
+      Scanner input = new Scanner(System.in);
+      System.out.print("What Avatar would you like (Fighter,Mage, Basic");
+      if (input.nextLine() == "Fighter"){
+        //add fighter class constructor thing
+      }
+      if (input.nextLine() == "Basic"){
+        //add basic class constructor thing
+      }
+      if (input.nextLine() == "Mage"){
+        //add mage class constructor thing
+      }
+
+    }
 
     Avatar bob = new Avatar();
 
