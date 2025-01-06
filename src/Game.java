@@ -146,7 +146,7 @@ public class Game {
         isStart = false;
       }
     }
-    Avatar bob = new Avatar();
+    
 
   }
 
