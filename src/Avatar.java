@@ -135,7 +135,7 @@ public class Avatar {
     public double takeDamage(double damage){
         damage = damage * rm;
         health = health - damage;
-        System.out.println(" you took " + damage + " points of damage!");
+        System.out.println(name +" took " + damage + " points of damage!");
         System.out.println(" Current HP: ");
         System.out.println(health);
         return health;
