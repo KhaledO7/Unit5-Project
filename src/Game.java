@@ -86,7 +86,7 @@ public class Game {
           System.out.print("Death Sound:");
           String death = input.nextLine();
           if(h > 200) {
-            System.out.println("Max Health Allowed is 5");
+            System.out.println("Max Health Allowed is 500");
             h = 500;
           }
           chosenAvatar = new Fighter(player, h, ability, vl, death);
