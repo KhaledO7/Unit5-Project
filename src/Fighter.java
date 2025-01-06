@@ -2,7 +2,7 @@ public class Fighter extends Avatar {
     private boolean isProtected;
 
 
-    public Fighter(String name, double health, String ability, String vl){
+    public Fighter(String name, double health, String ability, String vl, String deathSound){
         this.name = name;
         this.health = health;
         this.type = "Fighter";
@@ -11,6 +11,7 @@ public class Fighter extends Avatar {
         this.dm = 1.25;
         this.rm = .9;
         isProtected = false;
+        this.deathSound = deathSound;
     }
 
     public void voiceLine(){

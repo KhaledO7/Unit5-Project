@@ -8,9 +8,10 @@ public class Avatar {
     public String vl;
     public String ability;
     public double abDmg;
+    public String deathSound;
     public boolean isAlive;
 
-    public Avatar( String name, double health, String type, String ability, String vl, double dm, double rm, boolean alive, double abDmg){
+    public Avatar( String name, double health, String type, String ability, String vl, double dm, double rm, boolean alive, double abDmg, String deathSound){
         this.name = name;
         this.health = health;
         this.type = type;
@@ -19,6 +20,7 @@ public class Avatar {
         this.dm = dm;
         this.isAlive = alive;
         this.abDmg = abDmg;
+        this.deathSound = deathSound;
     }
 
     public Avatar(){
@@ -103,6 +105,9 @@ public class Avatar {
     public void setAbility(String ability) {
         this.ability = ability;
     }
+    public String getDeathSound() {
+        return deathSound;
+    }
 
     public void voiceline(){
         System.out.println(vl);
@@ -136,7 +141,7 @@ public class Avatar {
         return health;
     }
 public static void main(String[]args){
-        Avatar Steve = new Avatar("Steve", 150.0,"C","Fruit Punch", "Ahahahaha! This fist is called 'fruit'! And this one is 'punch'! It's fruit punch, get it?!",1.1,1.1,true,100);
+        Avatar Steve = new Avatar("Steve", 150.0,"C","Fruit Punch", "Ahahahaha! This fist is called 'fruit'! And this one is 'punch'! It's fruit punch, get it?!",1.1,1.1,true,100, "Oof");
         Steve.voiceline();
         Avatar Chris = new Avatar();
         Chris.voiceline();

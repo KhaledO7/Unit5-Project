@@ -1,2 +1,2 @@
-public class Healer {
+public class Healer extends Avatar{
 }
