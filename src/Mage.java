@@ -15,7 +15,7 @@ public class Mage extends Avatar {
     }
 
     public void voiceLine(){
-        System.out.println("Low Mana!");
+        System.out.println("Low Mana! \n" + vl);
     }
     public void getMana(){
         System.out.println("Mana: " + mana);

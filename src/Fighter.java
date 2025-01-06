@@ -15,7 +15,10 @@ public class Fighter extends Avatar {
     }
 
     public void voiceLine(){
-        System.out.println("I am shielded");
+        System.out.println("I am protected by my shield \n" + vl) ;
+    }
+    public void deathSound(){ System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA \n " + deathSound);
+
     }
 
     public void setProtect(Boolean protect) {

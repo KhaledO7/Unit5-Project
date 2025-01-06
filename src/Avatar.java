@@ -28,7 +28,7 @@ public class Avatar {
         this.health = 150;
         this.type = "C";
         this.ability = "Beg!";
-        this.vl = "Don't hurt us! Please! Resort to peace!";
+        this.vl = "Don't hurt me! Please! Resort to peace!";
         this.dm = 1.2;
         this.abDmg = 45;
 
@@ -139,6 +139,9 @@ public class Avatar {
         System.out.println(" Current HP: ");
         System.out.println(health);
         return health;
+    }
+    public void deathSound(){System.out.println(deathSound);
+
     }
 public static void main(String[]args){
         Avatar Steve = new Avatar("Steve", 150.0,"C","Fruit Punch", "Ahahahaha! This fist is called 'fruit'! And this one is 'punch'! It's fruit punch, get it?!",1.1,1.1,true,100, "Oof");
