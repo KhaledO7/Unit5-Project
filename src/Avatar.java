@@ -109,7 +109,7 @@ public class Avatar {
         return deathSound;
     }
 
-    public void voiceline(){
+    public void voiceLine(){
         System.out.println(vl);
 
     }
@@ -128,7 +128,7 @@ public class Avatar {
     public void gainHealth(){
         int increase = (int) (Math.random()*11)+1;
         this.health = health + increase;
-        System.out.println("health is: ");
+        System.out.println("Health is: ");
         System.out.println(health);
     }
 
@@ -136,7 +136,7 @@ public class Avatar {
         damage = damage * rm;
         health = health - damage;
         System.out.println(name +" took " + damage + " points of damage!");
-        System.out.println(" Current HP: ");
+        System.out.println("Current HP: ");
         System.out.println(health);
         return health;
     }
@@ -145,9 +145,9 @@ public class Avatar {
     }
 public static void main(String[]args){
         Avatar Steve = new Avatar("Steve", 150.0,"C","Fruit Punch", "Ahahahaha! This fist is called 'fruit'! And this one is 'punch'! It's fruit punch, get it?!",1.1,1.1,true,100, "Oof");
-        Steve.voiceline();
+        Steve.voiceLine();
         Avatar Chris = new Avatar();
-        Chris.voiceline();
+        Chris.voiceLine();
         Chris.takeDamage(40.0);
 }
 

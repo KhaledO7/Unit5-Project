@@ -12,16 +12,24 @@ public class Mage extends Avatar {
         this.rm = .9;
         lowMana = false;
         this.mana = mana;
+        this.deathSound = "Goodbye";
     }
 
     public void voiceLine(){
-        System.out.println("Low Mana! \n" + vl);
+        System.out.println("Full Mana! \n" + vl);
     }
+    public void deathSound(){ System.out.println("Mana \n " + deathSound);}
     public void getMana(){
         System.out.println("Mana: " + mana);
     }
     public void setIsLowMana(Boolean isLow) {
         lowMana = isLow;
+    }
+    public void gainHealth(){
+        int increase = (int) (Math.random()*16)+1;
+        this.health = health + increase;
+        System.out.println("Health is: ");
+        System.out.println(health);
     }
 
 }

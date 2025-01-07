@@ -33,5 +33,7 @@ public class Fighter extends Avatar {
     public void gainHealth(){
         int increase = (int) (Math.random()*21)+1;
         this.health = health + increase;
+        System.out.println("Health is: ");
+        System.out.println(health);
     }
 }

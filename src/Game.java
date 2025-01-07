@@ -49,7 +49,7 @@ public class Game {
 
     while(isStart){
       Scanner input = new Scanner(System.in);
-      System.out.print("Would you like pre-made Avatars");
+      System.out.print("Would you like pre-made Avatars ");
       String yesNo = input.nextLine().toLowerCase();
       if(yesNo.equals("yes")){
         System.out.print("What Avatar would you like (Fighter,Mage, Basic) ");
@@ -75,15 +75,15 @@ public class Game {
         String avatarType = input.nextLine().toLowerCase();
 
         if (avatarType.equals("fighter")){
-          System.out.print("Name:");
+          System.out.print("Name: ");
           String player = input.nextLine();
-          System.out.print("Health:");
+          System.out.print("Health: ");
           int h = Integer.parseInt(input.nextLine());
-          System.out.print("Ability:");
+          System.out.print("Ability: ");
           String ability = input.nextLine();
-          System.out.print("Voice Line:");
+          System.out.print("Voice Line: ");
           String vl = input.nextLine();
-          System.out.print("Death Sound:");
+          System.out.print("Death Sound: ");
           String death = input.nextLine();
           if(h > 200) {
             System.out.println("Max Health Allowed is 500");
@@ -94,15 +94,15 @@ public class Game {
           //add fighter class constructor thing
         }
         if (avatarType.equals("mage")){
-          System.out.print("Name:");
+          System.out.print("Name: ");
           String player = input.nextLine();
-          System.out.print("Health:");
+          System.out.print("Health: ");
           int h = Integer.parseInt(input.nextLine());
-          System.out.print("Ability:");
+          System.out.print("Ability: ");
           String ability = input.nextLine();
-          System.out.print("Voice Line:");
+          System.out.print("Voice Line: ");
           String vl = input.nextLine();
-          System.out.print("Mana:");
+          System.out.print("Mana: ");
           int m = Integer.parseInt(input.nextLine());
           if(h > 200 || m > 200){
             System.out.println("Max Health or Mana Allowed is 200");
@@ -122,27 +122,62 @@ public class Game {
 
     }
     System.out.println("--- Battle Start ---");
-    System.out.println("You have chosen " + chosenAvatar.getName() + "\n" + "Type: " + chosenAvatar.getType());
-    chosenAvatar.voiceline();
+    System.out.println();
+    System.out.println("You have chosen " + chosenAvatar.getName() + "\n" + "Type: " + chosenAvatar.getType().toUpperCase());
+    System.out.println();
+    chosenAvatar.voiceLine();
+
 
     while (chosenAvatar.getHealth() > 0 && opponent.getHealth() > 0) {
-      System.out.println("Your turn!");
+      System.out.println();
+      System.out.println("--- Your turn! ---");
+      Scanner input = new Scanner(System.in);
+      System.out.print("Damage or Run or Heal ");
 
-      System.out.println(chosenAvatar.getName() + " uses " + chosenAvatar.getAbility() + "!");
-      opponent.takeDamage(chosenAvatar.getAbDmg());
+      String yesNo = input.nextLine().toLowerCase();
+      if (yesNo.equals("d")) {
+        System.out.println();
+        System.out.println(chosenAvatar.getName() + " uses " + chosenAvatar.getAbility() + "!");
+        System.out.println();
+        System.out.println("Opponent:");
+        opponent.takeDamage(chosenAvatar.getAbDmg());
+        System.out.println();
+        System.out.println("--- Opponent's turn! ---");
+        System.out.println(opponent.getName() + " uses " + opponent.getAbility() + "!");
+        System.out.println();
+        System.out.println("You:");
+        chosenAvatar.takeDamage(opponent.getAbDmg());
+      }
+      if (yesNo.equals("r")){
+        System.out.println("You ran away.");
+        isStart = false;
+      }
+      if(yesNo.equals("h")){
+        chosenAvatar.gainHealth();
+        System.out.println("--- Opponent's turn! ---");
+        System.out.println(opponent.getName() + " uses " + opponent.getAbility() + "!");
+        System.out.println();
+        System.out.println("You:");
+        chosenAvatar.takeDamage(opponent.getAbDmg());
+      }
+
+
 
       if (opponent.getHealth() <= 0) {
         System.out.println(opponent.getName() + " has been defeated!");
+        opponent.deathSound();
+        System.out.println();
+        System.out.println("You won!");
         isStart = false;
       }
 
-      System.out.println("Opponent's turn!");
-      System.out.println(opponent.getName() + " uses " + opponent.getAbility() + "!");
-      chosenAvatar.takeDamage(opponent.getAbDmg());
+
 
       if (chosenAvatar.getHealth() <= 0) {
         System.out.println(chosenAvatar.getName() + " has been defeated!");
         chosenAvatar.deathSound();
+        System.out.println();
+        System.out.println("At least you tried!");
         isStart = false;
       }
     }
