@@ -20,16 +20,21 @@ public class Game {
       System.out.println();
       System.out.println("At least you tried!");
       isStart = false;
+      System.exit(0);
     }
     else if (opponent.getHealth() <= 0) {
       System.out.println(opponent.getName() + " has been defeated!");
       opponent.deathSound();
       System.out.println();
       System.out.println("You won!");
-      isStart = false;}
+      isStart = false;
+      System.exit(0);
+    }
 
     else if (moveRandom > 79) {
       System.out.println(opponent.name + " ran away! You Win!");
+      isStart = false;
+      System.exit(0);
     } else if (moveRandom > 55) {
       System.out.println(opponent.name + " healed themselves!");
       opponent.gainHealth();
@@ -47,13 +52,14 @@ public class Game {
     boolean powerUpCooldown = true;
     boolean isStart = true;
     String inputs = "";
-    while (isStart) {
-
+    if (isStart){
       Scanner input = new Scanner(System.in);
       System.out.print("Enter Opponents name: (or type 'stop' to name add game): ");
       inputs = input.nextLine();
       if (inputs.equalsIgnoreCase("stop")) {
-        break;
+        System.out.println("Game has been stopped!");
+        System.exit(0);
+
       }
       name.add(inputs);
 
@@ -192,6 +198,7 @@ public class Game {
       if (yesNo.equals("r")) {
         System.out.println("You ran away.");
         isStart = false;
+        break;
       }
       if (yesNo.equals("h")) {
         chosenAvatar.gainHealth();
