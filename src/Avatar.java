@@ -10,6 +10,8 @@ public class Avatar {
     public double abDmg;
     public String deathSound;
     public boolean isAlive;
+    public String powerUpName;
+    public double powerUpDamage;
 
     public Avatar( String name, double health, String type, String ability, String vl, double dm, double rm, boolean alive, double abDmg, String deathSound){
         this.name = name;
@@ -21,6 +23,7 @@ public class Avatar {
         this.isAlive = alive;
         this.abDmg = abDmg;
         this.deathSound = deathSound;
+
     }
 
     public Avatar(){
@@ -31,7 +34,21 @@ public class Avatar {
         this.vl = "Don't hurt me! Please! Resort to peace!";
         this.dm = 1.2;
         this.abDmg = 45;
+        this.powerUpName = "Default Power-up";
+        this.powerUpDamage = 35;
 
+    }
+
+        public void customizePowerUp(String powerUpName){
+            this.powerUpName = powerUpName;
+            this.powerUpDamage = (Math.random()*(30))+30;
+            System.out.println("Power-up activated! " + powerUpName + " deals " + powerUpDamage + " damage!");
+        }
+    public String getPowerUpName(){
+        return powerUpName;
+    }
+    public double getPowerUpDamage(){
+        return powerUpDamage;
     }
 
     public double getHealth() {
@@ -126,10 +143,10 @@ public class Avatar {
         this.health = health - decrease;
     }
     public void gainHealth(){
-        int increase = (int) (Math.random()*11)+1;
+        int increase = (int) (Math.random()*10)+1;
         this.health = health + increase;
-        System.out.println("Health is: ");
-        System.out.println(health);
+        System.out.println("You healed yourself! " + "You now have " + health + " health!");
+
     }
 
     public double takeDamage(double damage){

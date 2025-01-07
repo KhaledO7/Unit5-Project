@@ -26,9 +26,9 @@ public class Mage extends Avatar {
         lowMana = isLow;
     }
     public void gainHealth(){
-        int increase = (int) (Math.random()*16)+1;
+        int increase = (int) (Math.random()*15)+10;
         this.health = health + increase;
-        System.out.println("Health is: ");
+        System.out.println(" My fellow mage, your health is now: ");
         System.out.println(health);
     }
 

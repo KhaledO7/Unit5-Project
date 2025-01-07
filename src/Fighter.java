@@ -31,9 +31,9 @@ public class Fighter extends Avatar {
         this.health = health - decrease;
     }
     public void gainHealth(){
-        int increase = (int) (Math.random()*21)+1;
+        int increase = (int) (Math.random()*10)+5;
         this.health = health + increase;
-        System.out.println("Health is: ");
-        System.out.println(health);
+        System.out.println("I salute you Fighter.... you healed yourself! " + "You now have " + health + " health!");
+
     }
 }
