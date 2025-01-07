@@ -100,12 +100,10 @@ public class Game {
         if (avatarType.equals("fighter")) {
           chosenAvatar = new Fighter("Warrior", 200, "Smash", "Defeat is not an option.", "WTH, IM DEAD? SCREW U PLAYER");
           break;
-          //add fighter class constructor thing
         }
         if (avatarType.equals("basic")) {
           chosenAvatar = new Avatar();
           break;
-          //add basic class constructor thing
         }
         if (avatarType.equals("mage")) {
           chosenAvatar = new Mage("Gandalf", 120, "Fireball", "You shall not pass!", 100);
