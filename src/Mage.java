@@ -1,6 +1,6 @@
 public class Mage extends Avatar {
     private boolean lowMana;
-    private int mana;
+    //private int mana; horrible issue which causes it to refer to its own classes mana and not anothers
     private int manaCost;
 
     public Mage(String name, double health, String ability, String vl, int mana ){

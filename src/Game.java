@@ -192,7 +192,7 @@ public class Game {
           chosenAvatar.loseMana();
         }System.out.println();
         if (chosenAvatar.type.equals("mage")){
-          if (chosenAvatar.mana < 0) {
+          if (chosenAvatar.mana == 0) {
             System.out.println("You don't have enough mana!");
             chosenAvatar.gainMana();
           }

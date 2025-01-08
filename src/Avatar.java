@@ -32,7 +32,7 @@ public class Avatar {
     public Avatar(){
         this.name = "Chris";
         this.health = 150;
-        this.type = "C";
+        this.type = "basic";
         this.ability = "Beg!";
         this.vl = "Don't hurt me! Please! Resort to peace!";
         this.dm = 1.2;
@@ -44,7 +44,7 @@ public class Avatar {
 
         public void customizePowerUp(String powerUpName){
             this.powerUpName = powerUpName;
-            this.powerUpDamage = (Math.random()*(70))+30;
+            this.powerUpDamage = (Math.random()*(40))+60;
             System.out.println("Power-up activated! " + powerUpName + " deals " + powerUpDamage + " damage!");
         }
     public String getPowerUpName(){
