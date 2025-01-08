@@ -81,7 +81,7 @@ public class Game {
     } else if (opponentType == 2) {
       opponent = new Avatar(name.get(0), health, "S", "Strong Right", "No one can withstand my Strong Right!", 1.4, 1.2, true, damage, "And I'm dead...");
     } else {
-      opponent = new Avatar(name.get(opponentType), health, "A", "Stab", "Surrender", .9, 1.1, true, damage, "XD");
+      opponent = new Avatar(name.get(opponentType), health, "A", "Stab", "Surrender", .9, 1.1, true, damage, "Yare Yare Daze");
     }
 
 
@@ -163,8 +163,8 @@ public class Game {
 
   
     }
-    
 
+    int counter = 0;
     System.out.println("--- Battle Start ---");
     System.out.println();
     System.out.println("You have chosen " + chosenAvatar.getName() + "\n" + "Type: " + chosenAvatar.getType().toUpperCase());
@@ -176,16 +176,33 @@ public class Game {
       System.out.println();
       System.out.println("--- Your turn! ---");
       Scanner input = new Scanner(System.in);
-      System.out.print(" [D] Damage/ [R] Run / [H] Heal/ [P] Power-up ");
+      System.out.print(" [D] Damage/ [R] Run / [H] Heal/ [M] ManaBuff / [P] Power-up ");
+      if (chosenAvatar.type.equals("fighter")){
+        System.out.print("/ [X] Hidden Ability: Damage Buff");
+        System.out.println(" | Warning: This ability sacrifices your health for damage!");
+      }
+      else
+        System.out.println();
 
       String yesNo = input.nextLine().toLowerCase();
       if (yesNo.equals("d")) {
         System.out.println();
         System.out.println(chosenAvatar.getName() + " uses " + chosenAvatar.getAbility() + "!");
-        System.out.println();
-        System.out.println("Opponent:");
-        opponent.takeDamage(chosenAvatar.getAbDmg());
-       // System.out.println();
+        if (chosenAvatar.type.equals("mage")){
+          chosenAvatar.loseMana();
+        }System.out.println();
+        if (chosenAvatar.type.equals("mage")){
+          if (chosenAvatar.mana < 0) {
+            System.out.println("You don't have enough mana!");
+            chosenAvatar.gainMana();
+          }
+          else{System.out.println("Opponent:");
+            opponent.takeDamage(chosenAvatar.getAbDmg());}
+        }
+        else{System.out.println("Opponent:");
+          opponent.takeDamage(chosenAvatar.getAbDmg());}
+
+          // System.out.println();
        // System.out.println("--- Opponent's turn! ---");
        // System.out.println(opponent.getName() + " uses " + opponent.getAbility() + "!");
        // System.out.println();
@@ -193,12 +210,31 @@ public class Game {
         //chosenAvatar.takeDamage(opponent.getAbDmg());
 
         OpponentMove(random, opponent, chosenAvatar);      }
-      if (yesNo.equals("r")) {
+      else if (yesNo.equals("r")) {
         System.out.println("You ran away.");
         isStart = false;
         break;
       }
-      if (yesNo.equals("h")) {
+      else if (yesNo.equals("x") && chosenAvatar.type.equals("fighter")){
+        counter++;
+        if (counter ==3) {
+          System.out.println("You are at your limit! You die of exhaustion!");
+          System.exit(0);
+
+        }
+        chosenAvatar.damageBuff();
+        System.out.println("Opponent:");
+        opponent.takeDamage(chosenAvatar.getAbDmg());
+        OpponentMove(random, opponent, chosenAvatar);
+
+      }
+
+      else if (yesNo.equals("m")){
+        chosenAvatar.gainMana();
+        OpponentMove(random, opponent, chosenAvatar);
+      }
+
+      else if (yesNo.equals("h")) {
         chosenAvatar.gainHealth();
         OpponentMove(random, opponent, chosenAvatar);      }
       else if (yesNo.equals("p")) {
@@ -216,6 +252,7 @@ public class Game {
         else if (chosenAvatar.getHealth() >= 50) {
           System.out.println("You aren't worthy of this yet...");
         }
+
 
 
        // if (opponent.getHealth() <= 0) {

@@ -12,6 +12,8 @@ public class Avatar {
     public boolean isAlive;
     public String powerUpName;
     public double powerUpDamage;
+    public int mana;
+
 
     public Avatar( String name, double health, String type, String ability, String vl, double dm, double rm, boolean alive, double abDmg, String deathSound){
         this.name = name;
@@ -23,6 +25,7 @@ public class Avatar {
         this.isAlive = alive;
         this.abDmg = abDmg;
         this.deathSound = deathSound;
+        this.type = type;
 
     }
 
@@ -41,7 +44,7 @@ public class Avatar {
 
         public void customizePowerUp(String powerUpName){
             this.powerUpName = powerUpName;
-            this.powerUpDamage = (Math.random()*(30))+30;
+            this.powerUpDamage = (Math.random()*(70))+30;
             System.out.println("Power-up activated! " + powerUpName + " deals " + powerUpDamage + " damage!");
         }
     public String getPowerUpName(){
@@ -149,9 +152,25 @@ public class Avatar {
 
     }
 
+    public void damageBuff(){
+    }
+
+
+    public void loseMana(){
+        System.out.println("This character does not use mana! In an attempt to cast the spells of an other-worldly nature, you fell into a spiraling depression and died!");
+        System.exit(0);
+
+    }
+
+    public void gainMana(){
+        System.out.println("This character does not use mana! In an attempt to cast the spells of an other-worldly nature, you fell into a spiraling depression and died!");
+        System.exit(0);
+
+    }
+
     public double takeDamage(double damage){
         damage = damage * rm;
-        health = health - damage;
+        health = Math.max(0, health - damage);
         System.out.println(name +" took " + damage + " points of damage!");
         System.out.println("Current HP: ");
         System.out.println(health);
